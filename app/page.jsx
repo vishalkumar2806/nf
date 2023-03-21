@@ -1,4 +1,4 @@
-import App from "./App"
+import App from "./home/page"
 
 export default function Home() {
   return (

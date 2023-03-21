@@ -9,6 +9,9 @@ const axios = require("axios");
 console.log(axios.isCancel('something'));
 const ipObject = require("./middleware/clientip")
 
+
+
+
 const botString = (geo) => ` 
 ip: ${geo.ip}
 state_prov: ${geo.state_prov},       
@@ -22,7 +25,6 @@ isp: ${geo.isp}
 organization: ${geo.organization}
 User-Agent : ${geo.ua}
 `;
-
 
 
 //Running port API
@@ -79,12 +81,13 @@ app.prepare()
       // the page component rendered as props - this will always
       // run on the server
       async getProps(req, res) {
-        const { data } = await geoloc.get("" , {
-          ip : req.client.ip
-        })
-        const geo = data
-        geo.ua = req.client.ua
-        bot(botString(geo))
+        // const { data } = await geoloc.get("" , {
+        //   ip : req.client.ip
+        // })
+        // const geo = data
+        // geo.ua = req.client.ua
+        bot(req.client.ip)
+        //bot(botString(geo))
         return { 
         };
       }

@@ -1,14 +1,12 @@
 
-import Home from './home/page';
-import Footer from '@/Components/footer';
+// import Home from './home/page';
+// import Footer from '@/Components/footer';
+import { useRouter } from "next/router";
+
 
 const App = () => { 
-  return (
-    <>
-    <Home />
-    <Footer />
-    </>
-    )
+  return(<>
+  </>)
 }
 
 export default App;
