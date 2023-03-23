@@ -67,6 +67,8 @@ export default function Head() {
     <script src="/assets/js/nof.js" async="" type="text/javascript"></script>
     <script src="/assets/js/script.js" async="" type="text/javascript"></script>
     <style type="text/css" id="onetrust-style"></style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" async="" type="text/javascript" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>  
+    <script src="/assets/js/jquery.inputmask.min.js" async="" type="text/javascript" ></script>
     </>
   )
 }
